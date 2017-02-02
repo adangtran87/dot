@@ -1,0 +1,97 @@
+" @owner Alexander Dang-Tran
+" This is my vimrc file!
+"
+
+set nocompatible
+filetype on
+filetype off
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" Let Vundle manage itself
+Plugin 'gmarik/Vundle.vim'
+
+"Plugins
+Plugin 'tpope/vim-sensible'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-commentary'
+Plugin 'tpope/vim-unimpaired'
+Plugin 'tpope/vim-abolish'
+Plugin 'bling/vim-airline'
+Plugin 'ntpeters/vim-better-whitespace'
+Plugin 'scrooloose/nerdtree'
+Plugin 'kien/ctrlp.vim'
+Plugin 'mileszs/ack.vim'
+
+call vundle#end()
+filetype plugin indent on
+
+"ADT additions
+set background=dark
+
+colorscheme solarized
+set shiftwidth=4
+set tabstop=4
+set softtabstop=4
+set expandtab
+set listchars=eol:$,tab:>-,extends:>,precedes:<
+set list
+
+set number
+set nobackup
+set nowritebackup
+set ignorecase
+set noswapfile
+syntax on
+set t_Co=256
+
+"Mappings
+"Split Movement
+nmap gh <C-w>h
+nmap gj <C-w>j
+nmap gk <C-w>k
+nmap gl <C-w>l
+
+" Tab movement
+nmap <C-l> gt
+nmap <C-h> gT
+
+" Quick movement
+nmap J 5j
+nmap K 5k
+xmap J 5j
+xmap K 5k
+
+" Nerdtree configurations
+let NERDTreeIgnore = ['\.pyc$']
+
+" Leader Mappings
+let mapleader=","
+nnoremap <leader>N :NERDTreeToggle<RETURN>
+nnoremap <leader>s :StripWhitespace<RETURN>
+nnoremap <leader>a :Ack
+nnoremap <leader>c :copen<RETURN>
+nnoremap <leader>C :cclose<RETURN>
+" Since J is overriden give :join another remap
+nnoremap <leader>J :join<RETURN>
+nnoremap <leader>g :Gstatus<RETURN>
+nnoremap <leader>~ :e ~/.vimrc<RETURN>
+nnoremap <leader>O :!open %:p<RETURN>
+
+"Removes search highlight on esc
+nnoremap <silent> <esc> :noh<cr><esc>
+
+"Set optional file syntax highlighting
+au BufNewFile,BufRead *.txt set filetype=markdown
+
+"Changes directory to the directory of the currently open file
+autocmd BufEnter * silent! lcd %:p:h
+
+"Turn on spell check automatically for files
+autocmd BufRead,BufNewFile *.md setlocal spell
+autocmd BufRead,BufNewFile *.md setlocal textwidth=80
+autocmd FileType gitcommit setlocal spell
+
+"Configure better-whitespace
+let g:strip_whitespace_on_save = 1
