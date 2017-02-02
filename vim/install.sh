@@ -21,18 +21,18 @@ copy_dir() {
   fi
 }
 
-create_symlink() {
-  if [ ! -h "$2" ]
-  then
-    echo "Creating symlink $1 to $2."
-    ln -s "$1" "$2"
+install_vundle() {
+
+  if [[ -d ~/.vim/bundle/Vundle.vim ]]; then
+    echo "Vundle.vim already exists!"
   else
-    echo "Symlink already exists for $1."
+    echo "Cloning Vundle.vim"
+    git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
   fi
 }
 
 copy_vim_colors() {
-  if [[ -a "~/.vim/colors/solarized.vim" ]]; then
+  if [[ ! -f ~/.vim/colors/solarized.vim ]]; then
     cp ~/.dotfiles/submodules/solarized/vim-colors-solarized/colors/solarized.vim ~/.vim/colors/solarized.vim
     echo "Copying solarized.vim!"
   else
@@ -43,5 +43,6 @@ copy_vim_colors() {
 
 create_folder ~/.vim
 create_folder ~/.vim/colors
-copy_dir ~/.dotfiles/vim/bundle ~/.vim/bundle
+#copy_dir ~/.dotfiles/vim/bundle ~/.vim/bundle
+install_vundle
 copy_vim_colors
