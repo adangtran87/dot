@@ -82,6 +82,9 @@ nnoremap <leader>O :!open %:p<RETURN>
 " Diff commands
 nmap <leader>dp :diffput<RETURN>
 nmap <leader>dg :diffget<RETURN>
+" Split commands
+nmap <leader>ss :split<RETURN>
+nmap <leader>vs :vsplit<RETURN>
 
 "Removes search highlight on esc
 nnoremap <silent> <esc> :noh<cr><esc>
