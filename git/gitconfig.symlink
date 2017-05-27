@@ -1,7 +1,12 @@
 [user]
-	name = Alexander Dang-Tran
-	email = alex.dangtran@gmail.com
+  name = Alexander Dang-Tran
+  email = alex.dangtran@gmail.com
 [core]
-	editor = vim
+  editor = vim
+[alias]
+  lga = log --online --decorate --all --graph -50
+  lgb = "!f() { git log \"origin/$1\" --oneline --decorate --graph -50; }; f"
+  lg = log --oneline --decorate --graph -50
+  subup = submodule update --init --recursive
 [push]
-	default = simple
+  default = simple
