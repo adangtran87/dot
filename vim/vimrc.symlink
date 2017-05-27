@@ -79,6 +79,9 @@ nnoremap <leader>J :join<RETURN>
 nnoremap <leader>g :Gstatus<RETURN>
 nnoremap <leader>~ :e ~/.vimrc<RETURN>
 nnoremap <leader>O :!open %:p<RETURN>
+" Diff commands
+nmap <leader>dp :diffput<RETURN>
+nmap <leader>dg :diffget<RETURN>
 
 "Removes search highlight on esc
 nnoremap <silent> <esc> :noh<cr><esc>
@@ -90,6 +93,7 @@ au BufNewFile,BufRead *.txt set filetype=markdown
 autocmd BufEnter * silent! lcd %:p:h
 
 "Turn on spell check automatically for files
+autocmd BufRead,BufNewFile *.txt setlocal spell
 autocmd BufRead,BufNewFile *.md setlocal spell
 autocmd BufRead,BufNewFile *.md setlocal textwidth=80
 autocmd FileType gitcommit setlocal spell
