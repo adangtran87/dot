@@ -19,6 +19,7 @@ Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'tpope/vim-abolish'
 Plugin 'bling/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'scrooloose/nerdtree'
 Plugin 'kien/ctrlp.vim'
@@ -30,7 +31,7 @@ filetype plugin indent on
 "ADT additions
 set background=dark
 
-colorscheme solarized
+colorscheme desert
 set shiftwidth=2
 set tabstop=2
 set softtabstop=2
@@ -95,3 +96,6 @@ autocmd FileType gitcommit setlocal spell
 
 "Configure better-whitespace
 let g:strip_whitespace_on_save = 1
+
+"Configure vim-airline
+let g:airline_theme='ubaryd'
