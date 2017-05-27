@@ -86,6 +86,10 @@ nmap <leader>dg :diffget<RETURN>
 nmap <leader>ss :split<RETURN>
 nmap <leader>vs :vsplit<RETURN>
 
+"Copy/Paste to clipboard
+map <leader>p "+p
+map <leader>y "+y
+
 "Removes search highlight on esc
 nnoremap <silent> <esc> :noh<cr><esc>
 
