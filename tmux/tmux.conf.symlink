@@ -6,6 +6,8 @@ set -g history-limit 10000
 set -g status-keys vi
 # Navigation when in prefix-[
 setw -g mode-keys vi
+# Enable mouse navigation
+set -g mouse on
 
 #Split
 bind-key v split-window -h
