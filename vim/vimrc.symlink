@@ -28,10 +28,19 @@ Plugin 'mileszs/ack.vim'
 call vundle#end()
 filetype plugin indent on
 
-"ADT additions
-set background=dark
+""" Computer specific """""
+if has("win32")
+  set guifont=Consolas:h10
+  " Use solarized for windows
+  let g:solarized_italic=0
+  colorscheme solarized
+else
+  " Use desert for unix
+  colorscheme desert
+endif
 
-colorscheme desert
+""""" General Options """""
+set background=dark
 set shiftwidth=2
 set tabstop=2
 set softtabstop=2
@@ -63,9 +72,6 @@ nmap J 5j
 nmap K 5k
 xmap J 5j
 xmap K 5k
-
-" Nerdtree configurations
-let NERDTreeIgnore = ['\.pyc$']
 
 " Leader Mappings
 let mapleader=","
@@ -104,6 +110,11 @@ autocmd BufRead,BufNewFile *.txt setlocal spell
 autocmd BufRead,BufNewFile *.md setlocal spell
 autocmd BufRead,BufNewFile *.md setlocal textwidth=80
 autocmd FileType gitcommit setlocal spell
+
+"""""" Plugin Configurations """""
+
+" Nerdtree configurations
+let NERDTreeIgnore = ['\.pyc$']
 
 "Configure better-whitespace
 let g:strip_whitespace_on_save = 1
