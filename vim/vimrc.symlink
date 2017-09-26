@@ -111,6 +111,8 @@ autocmd BufRead,BufNewFile *.md setlocal spell
 autocmd BufRead,BufNewFile *.md setlocal textwidth=80
 autocmd FileType gitcommit setlocal spell
 
+autocmd FileType c set commentstring=//\ %s
+
 """""" Plugin Configurations """""
 
 " Nerdtree configurations
