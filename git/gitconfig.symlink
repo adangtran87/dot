@@ -4,7 +4,7 @@
 [core]
   editor = vim
 [alias]
-  lga = log --online --decorate --all --graph -50
+  lga = log --oneline --decorate --all --graph -50
   lgb = "!f() { git log \"origin/$1\" --oneline --decorate --graph -50; }; f"
   lg = log --oneline --decorate --graph -50
   subup = submodule update --init --recursive
