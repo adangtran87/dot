@@ -23,20 +23,25 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'scrooloose/nerdtree'
 Plugin 'kien/ctrlp.vim'
-Plugin 'mileszs/ack.vim'
+Plugin 'junegunn/gv.vim'
+Plugin 'airblade/vim-gitgutter'
 
 call vundle#end()
 filetype plugin indent on
 
-""" Computer specific """""
+""" OS specific """""
 if has("win32")
   set guifont=Consolas:h10
   " Use solarized for windows
   let g:solarized_italic=0
   colorscheme solarized
+  "Configure vim-airline
+  let g:airline_theme='solarized'
 else
   " Use desert for unix
   colorscheme desert
+  "Configure vim-airline
+  let g:airline_theme='ubaryd'
 endif
 
 """"" General Options """""
@@ -75,16 +80,31 @@ xmap K 5k
 
 " Leader Mappings
 let mapleader=","
-nnoremap <leader>N :NERDTreeToggle<RETURN>
 nnoremap <leader>s :StripWhitespace<RETURN>
 nnoremap <leader>a :Ack
 nnoremap <leader>c :copen<RETURN>
 nnoremap <leader>C :cclose<RETURN>
+
 " Since J is overriden give :join another remap
 nnoremap <leader>J :join<RETURN>
 nnoremap <leader>g :Gstatus<RETURN>
 nnoremap <leader>~ :e ~/.vimrc<RETURN>
 nnoremap <leader>O :!open %:p<RETURN>
+
+" NERDTree
+nnoremap <leader>n :NERDTree<RETURN>
+nnoremap <leader>N :NERDTreeClose<RETURN>
+
+" Resize windows
+nnoremap <leader>wh <C-w>\|
+nnoremap <leader>wj <C-w>_
+nnoremap <leader>ww <C-w>=
+
+"Buffer control
+nnoremap gb :ls<CR>:b<Space>
+nnoremap <leader>bb :bp<CR>
+nnoremap <leader>bn :bn<CR>
+
 " Diff commands
 nmap <leader>dp :diffput<RETURN>
 nmap <leader>dg :diffget<RETURN>
@@ -121,5 +141,3 @@ let NERDTreeIgnore = ['\.pyc$']
 "Configure better-whitespace
 let g:strip_whitespace_on_save = 1
 
-"Configure vim-airline
-let g:airline_theme='ubaryd'
