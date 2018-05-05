@@ -18,13 +18,11 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'tpope/vim-abolish'
-Plugin 'bling/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
 Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'scrooloose/nerdtree'
 Plugin 'kien/ctrlp.vim'
 Plugin 'junegunn/gv.vim'
-Plugin 'airblade/vim-gitgutter'
+Plugin 'itchyny/lightline.vim'
 
 call vundle#end()
 filetype plugin indent on
@@ -32,17 +30,11 @@ filetype plugin indent on
 """ OS specific """""
 if has("win32")
   set guifont=Consolas:h10
-  " Use solarized for windows
-  let g:solarized_italic=0
-  colorscheme solarized
-  "Configure vim-airline
-  let g:airline_theme='solarized'
-else
-  " Use desert for unix
-  colorscheme desert
-  "Configure vim-airline
-  let g:airline_theme='ubaryd'
 endif
+
+""" Colors """
+let g:gruvbox_italic=0
+colorscheme gruvbox
 
 """"" General Options """""
 set background=dark
@@ -81,12 +73,11 @@ xmap K 5k
 " Leader Mappings
 let mapleader=","
 nnoremap <leader>s :StripWhitespace<RETURN>
-nnoremap <leader>a :Ack
 nnoremap <leader>c :copen<RETURN>
 nnoremap <leader>C :cclose<RETURN>
 
 " Since J is overriden give :join another remap
-nnoremap <leader>J :join<RETURN>
+nnoremap <leader>a :join<RETURN>
 nnoremap <leader>g :Gstatus<RETURN>
 nnoremap <leader>~ :e ~/.vimrc<RETURN>
 nnoremap <leader>O :!open %:p<RETURN>
@@ -108,6 +99,7 @@ nnoremap <leader>bn :bn<CR>
 " Diff commands
 nmap <leader>dp :diffput<RETURN>
 nmap <leader>dg :diffget<RETURN>
+nmap <leader>dd :windo diffthis<RETURN>
 " Split commands
 nmap <leader>ss :split<RETURN>
 nmap <leader>vs :vsplit<RETURN>
@@ -121,6 +113,7 @@ nnoremap <silent> <esc> :noh<cr><esc>
 
 "Set optional file syntax highlighting
 au BufNewFile,BufRead *.txt set filetype=markdown
+au BufNewFile,BufRead *.seq set filetype=ia64
 
 "Changes directory to the directory of the currently open file
 autocmd BufEnter * silent! lcd %:p:h
@@ -141,3 +134,17 @@ let NERDTreeIgnore = ['\.pyc$']
 "Configure better-whitespace
 let g:strip_whitespace_on_save = 1
 
+"Configure airline
+let g:lightline = {
+      \ 'colorscheme': 'seoul256',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'fugitive#head'
+      \ },
+      \ }
+
+""""" Work """""
+autocmd BufRead,BufNewFile *.seq set syntax=ia64
