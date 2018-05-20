@@ -37,3 +37,11 @@ bind r source-file ~/.tmux.conf
 
 # THEME
 set -g default-terminal "screen-256color"
+
+# Plugins
+set -g @plugin 'tmux-plugins/tpm'
+set -g @plugin 'tmux-plugins/tmux-sensible'
+
+set -g @plugin 'tmux-plugins/tmux-yank'
+
+run '~/.tmux/plugins/tpm/tpm'
