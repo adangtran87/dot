@@ -31,18 +31,7 @@ install_vundle() {
   fi
 }
 
-copy_vim_colors() {
-  if [[ ! -f ~/.vim/colors/solarized.vim ]]; then
-    cp ~/.dotfiles/submodules/solarized/vim-colors-solarized/colors/solarized.vim ~/.vim/colors/solarized.vim
-    echo "Copying solarized.vim!"
-  else
-    echo "solarized.vim already exists!"
-
-  fi
-}
-
 create_folder ~/.vim
 create_folder ~/.vim/colors
 #copy_dir ~/.dotfiles/vim/bundle ~/.vim/bundle
 install_vundle
-copy_vim_colors
