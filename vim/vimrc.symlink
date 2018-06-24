@@ -24,6 +24,7 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'junegunn/gv.vim'
 Plugin 'itchyny/lightline.vim'
 Plugin 'morhetz/gruvbox'
+Plugin 'vimwiki/vimwiki'
 
 call vundle#end()
 filetype plugin indent on
@@ -88,9 +89,9 @@ nnoremap <leader>n :NERDTree<RETURN>
 nnoremap <leader>N :NERDTreeClose<RETURN>
 
 " Resize windows
-nnoremap <leader>wh <C-w>\|
-nnoremap <leader>wj <C-w>_
-nnoremap <leader>ww <C-w>=
+nnoremap <leader>Wh <C-w>\|
+nnoremap <leader>Wj <C-w>_
+nnoremap <leader>WW <C-w>=
 
 "Buffer control
 nnoremap gb :ls<CR>:b<Space>
@@ -146,6 +147,9 @@ let g:lightline = {
       \   'gitbranch': 'fugitive#head'
       \ },
       \ }
+
+" vimwiki/vimwiki
+let g:vimwiki_list = [{'path': '~/Dropbox/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
 
 """"" Work """""
 autocmd BufRead,BufNewFile *.seq set syntax=ia64
