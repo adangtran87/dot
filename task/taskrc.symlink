@@ -34,4 +34,5 @@ taskd.credentials=adt\/alex\/04de64de-3dfa-487d-9ec3-123b37a1a561
 taskd.certificate=\/Users\/alex\/.task\/alex.cert.pem
 taskd.key=\/Users\/alex\/.task\/alex.key.pem
 taskd.ca=\/Users\/alex\/.task\/ca.cert.pem
-uda.priority.values=H,M,,L
+uda.priority.values=H,M,,L,F
+urgency.uda.priority.F.coefficient=0.0
