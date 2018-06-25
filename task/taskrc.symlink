@@ -31,8 +31,15 @@ data.location=~/.task
 
 taskd.server=adangtran.org:6544
 taskd.credentials=adt\/alex\/04de64de-3dfa-487d-9ec3-123b37a1a561
-taskd.certificate=\/Users\/alex\/.task\/alex.cert.pem
-taskd.key=\/Users\/alex\/.task\/alex.key.pem
-taskd.ca=\/Users\/alex\/.task\/ca.cert.pem
+taskd.certificate=~/.task\/alex.cert.pem
+taskd.key=~/.task\/alex.key.pem
+taskd.ca=~/.task\/ca.cert.pem
 uda.priority.values=H,M,,L,F
 urgency.uda.priority.F.coefficient=0.0
+
+# Reports
+report.work.columns=id,start.age,entry.age,depends,priority,project,tags,recur,scheduled.countdown,due.remaining,until.remaining,description,urgency
+report.work.description=Most urgent work tasks
+report.work.filter=status:pending and project:Work limit:page
+report.work.labels=ID,Active,Age,Deps,P,Project,Tag,Recur,S,Due,Until,Description,Urg
+report.work.sort=urgency-
