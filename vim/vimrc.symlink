@@ -110,6 +110,9 @@ nmap <leader>vs :vsplit<RETURN>
 map <leader>p "+p
 map <leader>y "+y
 
+" Insert date string
+nnoremap <leader>pd "=strftime("%Y-%m-%d")<RETURN>p
+
 "Removes search highlight on esc
 nnoremap <silent> <esc> :noh<cr><esc>
 
