@@ -43,3 +43,9 @@ report.work.description=Most urgent work tasks
 report.work.filter=status:pending and project:Work limit:page
 report.work.labels=ID,Active,Age,Deps,P,Project,Tag,Recur,S,Due,Until,Description,Urg
 report.work.sort=urgency-
+
+report.home.columns=id,start.age,entry.age,depends,priority,project,tags,recur,scheduled.countdown,due.remaining,until.remaining,description,urgency
+report.home.description=Most urgent Home tasks
+report.home.filter=status:pending and project.not:Work limit:page
+report.home.labels=ID,Active,Age,Deps,P,Project,Tag,Recur,S,Due,Until,Description,Urg
+report.home.sort=urgency-
