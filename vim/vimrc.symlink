@@ -152,14 +152,21 @@ let g:lightline = {
       \ }
 
 " vimwiki/vimwiki
+let g:vimwiki_folding='expr'
+set foldlevel=2
 let g:vimwiki_list = [{'path': '~/Dropbox/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
 
-" Based on Gruvbox color scheme
+""Diary remapping
+nmap <leader>dh <Plug>VimwikiDiaryPrevDay
+nmap <leader>dl <Plug>VimwikiDiaryNextDay
+
+"" Based on Gruvbox color scheme
+if has("gui_running")
 hi VimwikiHeader1 guifg=#b8bb26
 hi VimwikiHeader2 guifg=#fabd2f
-hi VimwikiHeader3 guifg=#83a598
-hi VimwikiHeader4 guifg=#d3869b
-hi VimwikiHeader5 guifg=#8ec07c
+hi VimwikiHeader3 guifg=#d3869b
+hi VimwikiHeader4 guifg=#8ec07c
+endif
 
 """"" Work """""
 autocmd BufRead,BufNewFile *.seq set syntax=ia64
