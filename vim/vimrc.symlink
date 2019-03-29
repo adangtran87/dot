@@ -25,6 +25,12 @@ Plugin 'junegunn/gv.vim'
 Plugin 'itchyny/lightline.vim'
 Plugin 'morhetz/gruvbox'
 Plugin 'vimwiki/vimwiki'
+Plugin 'godlygeek/tabular'
+Plugin 'nfvs/vim-perforce'
+
+" Syntax Plugins
+Plugin 'Glench/Vim-Jinja2-Syntax'
+Plugin 'vhda/verilog_systemverilog.vim'
 
 call vundle#end()
 filetype plugin indent on
@@ -84,9 +90,10 @@ nnoremap <leader>g :Gstatus<RETURN>
 nnoremap <leader>~ :e ~/.vimrc<RETURN>
 nnoremap <leader>O :!open %:p<RETURN>
 
-" NERDTree
+" Programs
 nnoremap <leader>n :NERDTree<RETURN>
 nnoremap <leader>N :NERDTreeClose<RETURN>
+nnoremap <leader>B :CtrlPBuffer<RETURN>
 
 " Resize windows
 nnoremap <leader>Wh <C-w>\|
@@ -102,6 +109,7 @@ nnoremap <leader>bn :bn<CR>
 nmap <leader>dp :diffput<RETURN>
 nmap <leader>dg :diffget<RETURN>
 nmap <leader>dd :windo diffthis<RETURN>
+
 " Split commands
 nmap <leader>ss :split<RETURN>
 nmap <leader>vs :vsplit<RETURN>
@@ -130,13 +138,17 @@ autocmd BufRead,BufNewFile *.md setlocal textwidth=80
 autocmd FileType gitcommit setlocal spell
 
 autocmd FileType c set commentstring=//\ %s
+autocmd BufRead,BufNewFile *.S set commentstring=//\ %s
 
 """""" Plugin Configurations """""
 
 " Nerdtree configurations
 let NERDTreeIgnore = ['\.pyc$']
+let NERDTreeMinimalUI = 1
+let NERDTreeQuitOnOpen = 1
 
 "Configure better-whitespace
+let g:better_whitespace_enabled = 1
 let g:strip_whitespace_on_save = 1
 
 "Configure airline
@@ -157,6 +169,7 @@ set foldlevel=2
 let g:vimwiki_list = [{'path': '~/Dropbox/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
 
 ""Diary remapping
+nnoremap <leader>vt :VimwikiRebuildTags<RETURN>
 nmap <leader>dh <Plug>VimwikiDiaryPrevDay
 nmap <leader>dl <Plug>VimwikiDiaryNextDay
 
