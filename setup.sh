@@ -113,4 +113,4 @@ install_dotfiles () {
 install_dotfiles
 
 # Run other installers
-find . -name install.sh | while read installer ; do sh -c "${installer}" ; done
+find . -name install.sh | while read installer ; do bash -c "${installer}" ; done
