@@ -28,6 +28,9 @@ Plugin 'vimwiki/vimwiki'
 Plugin 'godlygeek/tabular'
 Plugin 'nfvs/vim-perforce'
 
+" Language Plugins
+Plugin 'fatih/vim-go'
+
 " Syntax Plugins
 Plugin 'Glench/Vim-Jinja2-Syntax'
 Plugin 'vhda/verilog_systemverilog.vim'
@@ -183,3 +186,6 @@ endif
 
 """"" Work """""
 autocmd BufRead,BufNewFile *.seq set syntax=ia64
+
+""" vim-go """
+let g:go_doc_keywordprg_enabled = 0
