@@ -4,6 +4,7 @@ set-option -g prefix C-a
 bind-key C-a send-prefix
 set -g history-limit 10000
 set -g status-keys vi
+set-option -g allow-rename off
 
 # Navigation when in prefix-[
 setw -g mode-keys vi
