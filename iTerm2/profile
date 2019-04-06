@@ -306,7 +306,7 @@
       "Option Key Sends": 0,
       "Prompt Before Closing 2": false,
       "Right Option Key Sends": 0,
-      "Rows": 25,
+      "Rows": 50,
       "Screen": -1,
       "Scrollback Lines": 0,
       "Selected Text Color": {
@@ -329,7 +329,7 @@
       "Transparency": 0.38086532360406095,
       "Unlimited Scrollback": true,
       "Use Bold Font": true,
-      "Use Bright Bold": true,
+      "Use Bright Bold": false,
       "Use Italic Font": true,
       "Use Non-ASCII Font": false,
       "Vertical Spacing": 1,
