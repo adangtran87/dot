@@ -8,11 +8,9 @@ if [ "$(uname)" != "Darwin" ]; then
 fi
 
 # Remove iTerm2 profile if it exists
-if [ -f "$ITERM2_PROFILE" ]; then
-  echo "Removing $ITERM2_PROFILE"
-  rm -f "$ITERM2_PROFILE"
+if [ ! -L "$ITERM2_PROFILE" ]; then
+  echo "Symlinking $PROFILE $ITERM2_PROFILE"
+  ln -s $PROFILE "$ITERM2_PROFILE"
+else
+  echo "$ITERM2_PROFILE exists. Do not remove"
 fi
-
-# Create symlink to profile
-echo "Symlinking $PROFILE $ITERM2_PROFILE"
-ln -s $PROFILE "$ITERM2_PROFILE"
