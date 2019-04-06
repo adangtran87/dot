@@ -110,6 +110,12 @@ install_dotfiles () {
   done
 }
 
+################################################################################
+# Main
+################################################################################
+# Run preinstallers
+find . -name preinstall.sh | while read preinstaller ; do bash -c "${preinstaller}" ; done
+
 install_dotfiles
 
 # Run other installers
