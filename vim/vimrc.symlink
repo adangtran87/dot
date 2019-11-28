@@ -125,7 +125,7 @@ map <leader>y "+y
 nnoremap <leader>pd "=strftime("%Y-%m-%d")<RETURN>p
 
 "Removes search highlight on esc
-nnoremap <silent> <esc> :noh<cr><esc>
+nnoremap <silent> <esc><esc> :noh<cr><esc>
 
 "Set optional file syntax highlighting
 au BufNewFile,BufRead *.txt set filetype=markdown
