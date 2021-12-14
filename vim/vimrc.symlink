@@ -34,6 +34,7 @@ Plugin 'fatih/vim-go'
 " Syntax Plugins
 Plugin 'Glench/Vim-Jinja2-Syntax'
 Plugin 'vhda/verilog_systemverilog.vim'
+Plugin 'calviken/vim-gdscript3'
 
 call vundle#end()
 filetype plugin indent on
@@ -142,6 +143,10 @@ autocmd FileType gitcommit setlocal spell
 
 autocmd FileType c set commentstring=//\ %s
 autocmd BufRead,BufNewFile *.S set commentstring=//\ %s
+
+autocmd BufRead,BufNewFile *.gd setlocal shiftwidth=4
+autocmd BufRead,BufNewFile *.gd setlocal tabstop=4
+autocmd BufRead,BufNewFile *.gd setlocal softtabstop=4
 
 """""" Plugin Configurations """""
 
