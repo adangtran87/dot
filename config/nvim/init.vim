@@ -9,7 +9,7 @@ autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
 
 call plug#begin('~/.vim/plugged')
 " Color
-Plug 'morhetz/gruvbox'
+Plug 'gruvbox-community/gruvbox'
 
 " Filebrower
 Plug 'scrooloose/nerdtree'
@@ -58,6 +58,8 @@ set listchars=eol:$,tab:>-,extends:>,precedes:<
 set list
 
 set number
+set relativenumber
+set cursorline
 set nobackup
 set nowritebackup
 set ignorecase
@@ -97,20 +99,36 @@ let mapleader=","
 nnoremap <leader>s :StripWhitespace<RETURN>
 nnoremap <leader>c :copen<RETURN>
 nnoremap <leader>C :cclose<RETURN>
+nnoremap <leader>R :source $HOME/.config/nvim/init.vim<CR>
 
 " Since J is overriden give :join another remap
 nnoremap <leader>a :join<RETURN>
-nnoremap <leader>g :Gstatus<RETURN>
+nnoremap <leader>g :Git<RETURN>
 nnoremap <leader>~ :e ~/.vimrc<RETURN>
 nnoremap <leader>O :!open %:p<RETURN>
+
+command! -bang -nargs=* Rgc
+  \ call fzf#vim#grep(
+  \   'rg --column --line-number --no-heading --color=always --smart-case -tc '.shellescape(<q-args>), 1,
+  \   <bang>0 ? fzf#vim#with_preview('up:60%')
+  \           : fzf#vim#with_preview('right:50%:hidden', '?'),
+  \   <bang>0)
+
+command! -bang -nargs=* Rgpy
+  \ call fzf#vim#grep(
+  \   'rg --column --line-number --no-heading --color=always --smart-case -tpy '.shellescape(<q-args>), 1,
+  \   <bang>0 ? fzf#vim#with_preview('up:60%')
+  \           : fzf#vim#with_preview('right:50%:hidden', '?'),
+  \   <bang>0)
 
 " Programs
 nnoremap <leader>n :NERDTree<RETURN>
 nnoremap <leader>N :NERDTreeClose<RETURN>
 nnoremap <leader>B :Buffers<RETURN>
-nnoremap <leader>F :Files ${PWD}<RETURN>
-nnoremap <leader>ff :Files<RETURN>
+nnoremap <C-p> :Files ${PWD}<RETURN>
 nnoremap <leader>r :Rg<RETURN>
+nnoremap <leader>rc :Rgc<RETURN>
+nnoremap <leader>rp :Rgpy<RETURN>
 
 " Diff commands
 nmap <leader>dp :diffput<RETURN>
@@ -124,12 +142,10 @@ nmap <leader>vs :vsplit<RETURN>
 "Removes search highlight on esc
 nnoremap <silent> <esc><esc> :noh<cr><esc>
 
-" pydocstring
-let g:pydocstring_doq_path = '/home/$USER/.local/bin/doq'
-let g:pydocstring_formatter = 'google'
-
 " Spell
 autocmd BufRead,BufNewFile *.txt setlocal spell
 autocmd BufRead,BufNewFile *.md setlocal spell
 autocmd BufRead,BufNewFile *.md setlocal textwidth=80
 autocmd FileType gitcommit setlocal spell
+
+autocmd FileType python setlocal tabstop=4 shiftwidth=4 softtabstop=4 expandtab

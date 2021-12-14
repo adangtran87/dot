@@ -1,4 +1,37 @@
+export CONFIG_HOME=$HOME/.config
+VIM="nvim"
 
-export GOPATH=$HOME/go
-export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin
+source /usr/share/doc/fzf/examples/key-bindings.zsh
+source /usr/share/doc/fzf/examples/completion.zsh
+
+bindkey -s ^f "tmux-sessionizer\n"
+
+# WSL
+alias winhome='cd /mnt/c/Users/${USER}'
+alias explorer='explorer.exe `wslpath -w "$PWD"`'
+alias synctime='sudo hwclock --hctosys'
+export WSL_WINDOWS_HOST=`cat /etc/resolv.conf | grep nameserver | cut -d ' ' -f 2`
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+
+addToPath() {
+    if [[ "$PATH" != *"$1"* ]]; then
+        export PATH=$PATH:$1
+    fi
+}
+
+addToPathFront() {
+    if [[ "$PATH" != *"$1"* ]]; then
+        export PATH=$1:$PATH
+    fi
+}
+
+addToPathFront $HOME/.local/bin
+addToPathFront $HOME/bin
+addToPathFront $HOME/.poetry/bin
+
+function workon() {
+  source ~/.venv/$1/bin/activate
+}
 
