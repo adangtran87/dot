@@ -42,6 +42,7 @@ Plug 'saadparwaiz1/cmp_luasnip'
 Plug 'L3MON4D3/LuaSnip'
 
 call plug#end()
+filetype plugin indent on
 
 " Colors
 let g:gruvbox_italic=0
@@ -98,6 +99,8 @@ vnoremap K :m '<-2<CR>gv=gv
 let mapleader=","
 nnoremap <leader>s :StripWhitespace<RETURN>
 nnoremap <leader>c :copen<RETURN>
+nnoremap <leader>cn :cnext<RETURN>
+nnoremap <leader>cp :cprev<RETURN>
 nnoremap <leader>C :cclose<RETURN>
 nnoremap <leader>R :source $HOME/.config/nvim/init.vim<CR>
 
@@ -149,3 +152,4 @@ autocmd BufRead,BufNewFile *.md setlocal textwidth=80
 autocmd FileType gitcommit setlocal spell
 
 autocmd FileType python setlocal tabstop=4 shiftwidth=4 softtabstop=4 expandtab
+autocmd BufRead,BufNewFile *.gd setlocal tabstop=4 shiftwidth=4 softtabstop=4 expandtab
