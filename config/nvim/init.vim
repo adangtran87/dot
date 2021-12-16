@@ -68,6 +68,7 @@ set noswapfile
 syntax on
 set t_Co=256
 set signcolumn=yes
+set colorcolumn=120
 
 "Split Movement
 nmap gh <C-w>h
@@ -107,7 +108,7 @@ nnoremap <leader>R :source $HOME/.config/nvim/init.vim<CR>
 " Since J is overriden give :join another remap
 nnoremap <leader>a :join<RETURN>
 nnoremap <leader>g :Git<RETURN>
-nnoremap <leader>~ :e ~/.vimrc<RETURN>
+nnoremap <leader>~ :e $HOME/.config/nvim/init.vim<RETURN>
 nnoremap <leader>O :!open %:p<RETURN>
 
 command! -bang -nargs=* Rgc
