@@ -1,5 +1,11 @@
 " Language Servers
 let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
+nnoremap <leader>lg :lua require'telescope.builtin'.grep_string{}<CR>
+nnoremap <leader>lc :lua require'telescope.builtin'.command_history{}<CR>
+nnoremap <leader>lr :lua require'telescope.builtin'.lsp_references{}<CR>
+nnoremap <leader>ls :lua require'telescope.builtin'.lsp_document_symbols{}<CR>
+nnoremap <leader>lS :lua require'telescope.builtin'.lsp_workspace_symbols{}<CR>
+
 nnoremap <leader>vd :lua vim.lsp.buf.definition()<CR>
 nnoremap <leader>vi :lua vim.lsp.buf.implementation()<CR>
 nnoremap <leader>vsh :lua vim.lsp.buf.signature_help()<CR>
