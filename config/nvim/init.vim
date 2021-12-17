@@ -13,6 +13,8 @@ Plug 'gruvbox-community/gruvbox'
 
 " Filebrower
 Plug 'scrooloose/nerdtree'
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'ThePrimeagen/harpoon'
@@ -41,11 +43,18 @@ Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'saadparwaiz1/cmp_luasnip'
 Plug 'L3MON4D3/LuaSnip'
 
+" Terminal
+Plug 'voldikss/vim-floaterm'
+
 call plug#end()
 filetype plugin indent on
 
 " Colors
 let g:gruvbox_italic=0
+nnoremap <leader>t :FloatermToggle<CR>
+tnoremap <leader>t <C-\><C-n>:FloatermToggle<CR>
+nnoremap <leader>mt :FloatermSend make test<CR>
+nnoremap <leader>ml :FloatermSend make lint<CR>
 colorscheme gruvbox
 set background=dark
 
