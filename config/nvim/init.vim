@@ -19,6 +19,7 @@ Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'ThePrimeagen/harpoon'
 Plug 'nvim-telescope/telescope.nvim'
+Plug 'AckslD/nvim-neoclip.lua'
 
 " Git
 Plug 'tpope/vim-fugitive'
