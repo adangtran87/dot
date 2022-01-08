@@ -165,8 +165,8 @@ autocmd FileType gitcommit setlocal spell
 autocmd FileType python setlocal tabstop=4 shiftwidth=4 softtabstop=4 expandtab
 autocmd BufRead,BufNewFile *.gd setlocal tabstop=4 shiftwidth=4 softtabstop=4 expandtab
 
-source $HOME/.config/nvim/plugin/godot.vim
-source $HOME/.config/nvim/plugin/harpoon.vim
 source $HOME/.config/nvim/plugin/lsp.vim
+source $HOME/.config/nvim/plugin/godot.vim
 source $HOME/.config/nvim/plugin/pydocstring.vim
 source $HOME/.config/nvim/plugin/vim_better_whitespace.vim
+source $HOME/.config/nvim/plugin/harpoon.vim

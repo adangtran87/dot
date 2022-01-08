@@ -1,16 +1,15 @@
 export CONFIG_HOME=$HOME/.config
 VIM="nvim"
 
-source /usr/share/doc/fzf/examples/key-bindings.zsh
-source /usr/share/doc/fzf/examples/completion.zsh
-
 bindkey -s ^f "tmux-sessionizer\n"
 
 # WSL
-alias winhome='cd /mnt/c/Users/${USER}'
-alias explorer='explorer.exe `wslpath -w "$PWD"`'
-alias synctime='sudo hwclock --hctosys'
-export WSL_WINDOWS_HOST=`cat /etc/resolv.conf | grep nameserver | cut -d ' ' -f 2`
+if grep -qEi "(Microsoft|WSL)" /proc/version &> /dev/null ; then
+  alias winhome='cd /mnt/c/Users/${USER}'
+  alias explorer='explorer.exe `wslpath -w "$PWD"`'
+  alias synctime='sudo hwclock --hctosys'
+  export WSL_WINDOWS_HOST=`cat /etc/resolv.conf | grep nameserver | cut -d ' ' -f 2`
+fi
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
@@ -35,3 +34,8 @@ function workon() {
   source ~/.venv/$1/bin/activate
 }
 
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Created by `pipx` on 2021-12-29 23:02:43
+export PATH="$PATH:/home/alex/.local/bin:$HOME/.poetry/bin"
