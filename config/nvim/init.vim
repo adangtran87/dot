@@ -31,6 +31,7 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-abolish'
 
 " Syntax
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'vhda/verilog_systemverilog.vim'
 Plug 'heavenshell/vim-pydocstring'
