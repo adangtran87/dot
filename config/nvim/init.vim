@@ -144,6 +144,7 @@ nnoremap <C-p> :Files ${PWD}<RETURN>
 nnoremap <leader>r :Rg<RETURN>
 nnoremap <leader>rc :Rgc<RETURN>
 nnoremap <leader>rp :Rgpy<RETURN>
+nnoremap <leader>f :Telescope treesitter<CR>
 
 let g:floaterm_wintype="split"
 nnoremap <leader>t :FloatermToggle<CR>
