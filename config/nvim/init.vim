@@ -44,11 +44,15 @@ Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'saadparwaiz1/cmp_luasnip'
 Plug 'L3MON4D3/LuaSnip'
 
+Plug 'simrat39/rust-tools.nvim'
+
 " Terminal
 Plug 'voldikss/vim-floaterm'
 
 call plug#end()
 filetype plugin indent on
+lua require'lspconfig'.rust_analyzer.setup({})
+lua require('rust-tools').setup({})
 
 " Colors
 let g:gruvbox_italic=0
