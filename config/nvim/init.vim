@@ -52,10 +52,6 @@ filetype plugin indent on
 
 " Colors
 let g:gruvbox_italic=0
-nnoremap <leader>t :FloatermToggle<CR>
-tnoremap <leader>t <C-\><C-n>:FloatermToggle<CR>
-nnoremap <leader>mt :FloatermSend make test<CR>
-nnoremap <leader>ml :FloatermSend make lint<CR>
 colorscheme gruvbox
 set background=dark
 
@@ -143,6 +139,13 @@ nnoremap <C-p> :Files ${PWD}<RETURN>
 nnoremap <leader>r :Rg<RETURN>
 nnoremap <leader>rc :Rgc<RETURN>
 nnoremap <leader>rp :Rgpy<RETURN>
+
+let g:floaterm_wintype="split"
+nnoremap <leader>t :FloatermToggle<CR>
+tnoremap <leader>T <C-\><C-n>
+tnoremap <leader>t <C-\><C-n>:FloatermToggle<CR>
+nnoremap <leader>mt :FloatermSend make test<CR>
+nnoremap <leader>ml :FloatermSend make lint<CR>
 
 " Diff commands
 nmap <leader>dp :diffput<RETURN>
