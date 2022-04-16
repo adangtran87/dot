@@ -139,7 +139,7 @@ command! -bang -nargs=* Rgpy
 " Programs
 nnoremap <leader>n :NERDTree<RETURN>
 nnoremap <leader>N :NERDTreeClose<RETURN>
-nnoremap <leader>B :Buffers<RETURN>
+nnoremap <leader>b :Buffers<RETURN>
 nnoremap <C-p> :Files ${PWD}<RETURN>
 nnoremap <leader>r :Rg<RETURN>
 nnoremap <leader>rc :Rgc<RETURN>
@@ -148,7 +148,7 @@ nnoremap <leader>f :Telescope treesitter<CR>
 
 let g:floaterm_wintype="split"
 nnoremap <leader>t :FloatermToggle<CR>
-tnoremap <leader>T <C-\><C-n>
+tnoremap <ESC> <C-\><C-n>
 tnoremap <leader>t <C-\><C-n>:FloatermToggle<CR>
 nnoremap <leader>mt :FloatermSend make test<CR>
 nnoremap <leader>ml :FloatermSend make lint<CR>
