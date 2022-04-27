@@ -13,6 +13,7 @@ fi
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
+alias ts=tmux-sessionizer
 
 addToPath() {
     if [[ "$PATH" != *"$1"* ]]; then
@@ -37,5 +38,3 @@ function workon() {
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# Created by `pipx` on 2021-12-29 23:02:43
-export PATH="$PATH:/home/alex/.local/bin:$HOME/.poetry/bin"
