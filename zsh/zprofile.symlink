@@ -27,6 +27,8 @@ addToPathFront() {
     fi
 }
 
+addToPathFront $HOME/.brew/bin
+addToPathFront $HOME/.brew/sbin
 addToPathFront $HOME/.local/bin
 addToPathFront $HOME/bin
 addToPathFront $HOME/.poetry/bin

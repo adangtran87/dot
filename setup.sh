@@ -110,6 +110,14 @@ install_dotfiles () {
   done
 }
 
+install_manual () {
+  sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  ln -s $HOME/config/nvim $HOME/.config/
+  ln -s $HOME/bin/local/bin $HOME/.local/
+  ln -s $HOME/.dotfiles/zsh/adt.zsh-theme $HOME/.oh-my-zsh/themes/adt.zsh-theme
+}
+
 ################################################################################
 # Main
 ################################################################################
@@ -117,6 +125,7 @@ install_dotfiles () {
 find . -name preinstall.sh | while read preinstaller ; do bash -c "${preinstaller}" ; done
 
 install_dotfiles
+install_manual
 
 # Run other installers
 find . -name install.sh | while read installer ; do bash -c "${installer}" ; done

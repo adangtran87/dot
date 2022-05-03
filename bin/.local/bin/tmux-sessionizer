@@ -4,7 +4,7 @@ if [[ $# -eq 1 ]]; then
     selected=$1
 else
     tmux list-sessions | sed -E 's/:.*$//' | grep -v \"^$(tmux display-message -p '#S')\$\" > /tmp/tmux-sessionizer
-    find ~/projects ~/work -mindepth 1 -maxdepth 1 -type d >> /tmp/tmux-sessionizer
+    find ~/personal ~/work -mindepth 1 -maxdepth 1 -type ld >> /tmp/tmux-sessionizer
     find ~/.dotfiles -maxdepth 0 -type d >> /tmp/tmux-sessionizer
     selected=$(cat /tmp/tmux-sessionizer | fzf)
 fi
