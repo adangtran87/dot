@@ -35,7 +35,6 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'vhda/verilog_systemverilog.vim'
 Plug 'heavenshell/vim-pydocstring'
-Plug 'calviken/vim-gdscript3'
 Plug 'rust-lang/rust.vim'
 
 " lsp
