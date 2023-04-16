@@ -51,8 +51,6 @@ Plug 'voldikss/vim-floaterm'
 
 call plug#end()
 filetype plugin indent on
-lua require'lspconfig'.rust_analyzer.setup({})
-lua require('rust-tools').setup({})
 
 " Colors
 let g:gruvbox_italic=0
@@ -137,6 +135,7 @@ command! -bang -nargs=* Rgpy
 
 " Programs
 nnoremap <leader>n :NERDTree<RETURN>
+nnoremap <leader>nn :NERDTree %<RETURN>
 nnoremap <leader>N :NERDTreeClose<RETURN>
 nnoremap <leader>b :Buffers<RETURN>
 nnoremap <C-p> :Files ${PWD}<RETURN>

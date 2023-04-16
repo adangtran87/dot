@@ -21,6 +21,8 @@ lua << EOF
 require'lspconfig'.pyright.setup{}
 require'lspconfig'.gdscript.setup{}
 require'lspconfig'.clangd.setup{}
+require'lspconfig'.rust_analyzer.setup{}
+require'rust-tools'.setup{}
 local lspconfig = require('lspconfig')
 
 -- Enable some language servers with the additional completion capabilities offered by nvim-cmp
